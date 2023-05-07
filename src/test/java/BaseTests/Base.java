@@ -2,11 +2,13 @@ package BaseTests;
 
 
 
+
 import java.io.IOException;
 import java.util.Properties;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 import com.microsoft.playwright.Page;
 
@@ -23,12 +25,18 @@ public class Base  {
 	protected LoginPage loginpage;
 	protected Properties prop;
 
+	@Parameters({ "browser" })
 	@BeforeTest
-	public void setup() throws IOException
+	public void setup(String browserName) throws IOException
 
 	{
 		pf = new PlaywrightFactory();
 		prop = pf.init_prop();
+		
+		if (browserName != null) {
+			prop.setProperty("browser", browserName);
+		}
+		
 		page = pf.initBrowser(prop);
 		homepage =new HomePage(page);
 
@@ -37,7 +45,6 @@ public class Base  {
 
 
 	
-
 	@AfterTest
 	public void tearDown()
 	{

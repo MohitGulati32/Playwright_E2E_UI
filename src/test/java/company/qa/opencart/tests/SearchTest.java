@@ -9,7 +9,7 @@ import org.testng.annotations.DataProvider;
 import BaseTests.Base;
 import constants.AppConstants;
 
-public class search extends Base{
+public class SearchTest extends Base{
 
 
 	

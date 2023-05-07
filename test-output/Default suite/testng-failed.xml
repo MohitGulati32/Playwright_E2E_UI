@@ -6,8 +6,9 @@
       <class name="company.qa.opencart.tests.LoginTest">
         <methods>
           <include name="tearDown"/>
-          <include name="NavigatetoLoginPageTest"/>
           <include name="setup"/>
+          <include name="loginUserTest"/>
+          <include name="forgotpassTest"/>
         </methods>
       </class> <!-- company.qa.opencart.tests.LoginTest -->
     </classes>
